@@ -8,8 +8,8 @@ export interface HomeResponse {
   docs: (MovieData | TVShowData)[];
   fantasiaPelis: (MovieData | TVShowData)[];
   horrorPelis: (MovieData | TVShowData)[];
-  pelis: (MovieData | TVShowData)[];
-  tvs: (MovieData | TVShowData)[];
+  pelis: MovieData[];
+  tvs: TVShowData[];
   popularData: {
     movies: MovieData[];
     tvShows: TVShowData[];
