@@ -7,6 +7,7 @@ import { getHomeContent } from "@/services/homeService";
 import { useHomeStore } from "@/store/useHomeStore";
 import { Carousel } from "./components/Carousel";
 import { LoadingScreen } from "./components/LoadingScreen";
+import { Chat } from "@/components/details/Chat";
 
 export default function Home() {
   const {
@@ -47,7 +48,7 @@ export default function Home() {
     );
   }
   return (
-    <div className="h-full overflow-auto">
+    <div className="h-full w-full overflow-auto relative">
       <Carousel slides={popularData} />
       <div className="flex flex-col w-full overflow-hidden gap-5 pl-4 pt-4">
         <div className="flex flex-col gap-2">
@@ -99,6 +100,7 @@ export default function Home() {
           <Slider movies={horrorPelis} />
         </div>
       </div>
+      <Chat />
     </div>
   );
 }

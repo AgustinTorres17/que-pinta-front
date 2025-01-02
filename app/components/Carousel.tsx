@@ -88,7 +88,7 @@ export const Carousel = ({ slides }: CarouselProps) => {
               objectFit="cover"
               className="overflow-hidden w-full h-full object-cover object-center fade-bottom"
             />
-            <div className="absolute bottom-4 right-4 p-2 rounded">
+            <div className="absolute bottom-4 left-4 p-2 rounded">
               <Leading
                 className="text-fondo-200 shadow-black"
                 variant={"h2"}

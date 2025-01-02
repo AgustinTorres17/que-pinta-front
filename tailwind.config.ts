@@ -72,6 +72,9 @@ export default {
       gridTemplateRows: {
         "auto-1fr": "auto 1fr",
       },
+      gridTemplateColumns: {
+        "1fr-auto": "1fr auto",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
