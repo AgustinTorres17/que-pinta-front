@@ -35,7 +35,7 @@ export default function Movie() {
   return (
     <div className="relative min-h-full w-full overflow-x-hidden lg:flex overflow-y-auto lg:items-start lg:justify-center">
       <div className="flex flex-col md:grid md:grid-cols-2 items-start lg:w-[80%] justify-start gap-5 z-10 relative">
-        <div className="w-full flex flex-col items-center justify-start gap-4 pt-8 sticky top-0">
+        <div className="w-full flex flex-col items-center justify-start gap-4 pt-8 md:sticky md:top-0">
           <MovieInfo
             title={movieData.title}
             poster_path={movieData.poster_path}
@@ -47,7 +47,7 @@ export default function Movie() {
             <VoteCircle voteAverage={movieData.vote_average} />
           )}
         </div>
-        <div className="h-full w-full flex flex-col items-center gap-4 p-8 md:pt-8">
+        <div className="h-full w-full flex flex-col items-center justify-between gap-4 p-8 md:pt-8">
           {movieData.overview && (
             <div className="w-full text-center lg:max-w-full text-lg flex flex-col gap-2">
               <Leading variant={"h3"}>Sinópsis</Leading>
