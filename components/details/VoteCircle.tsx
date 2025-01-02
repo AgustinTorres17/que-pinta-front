@@ -48,11 +48,9 @@ export const VoteCircle: React.FC<VoteCircleProps> = ({ voteAverage }) => {
 
           {/* Barra de fondo dinámica */}
           <RadialBar
-            minAngle={15}
-            clockWise
             dataKey="value"
             cornerRadius={10}
-            background={{ fill: "var(--circle-bg-color)" }} // Color dinámico
+            background={{ fill: "#eee" }}
           />
 
           {/* Texto centrado */}

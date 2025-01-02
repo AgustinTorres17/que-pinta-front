@@ -6,7 +6,6 @@ interface ProductionCompany {
   id: number;
   logo_path: string | null;
   name: string;
-  [key: string]: any;
 }
 interface ProductionCompaniesProps {
   companies: ProductionCompany[];

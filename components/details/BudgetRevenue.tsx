@@ -5,9 +5,7 @@ import {
   Bar,
   XAxis,
   YAxis,
-  Tooltip,
   ResponsiveContainer,
-  CartesianGrid,
 } from "recharts";
 import { Leading } from "../Leading";
 
@@ -15,13 +13,6 @@ interface BudgetRevenueProps {
   budget: number;
   revenue: number;
 }
-
-// (Opcional) Formateo en moneda
-const formatCurrency = (value: number) =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  }).format(value);
 
 // Abreviar números
 const formatShortNumber = (value: number) => {

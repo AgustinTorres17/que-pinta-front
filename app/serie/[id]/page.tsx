@@ -20,7 +20,6 @@ export default function Serie() {
     if (!tvShowId) return;
     const fetchData = async () => {
       const response: TVShowData = await getTVShowData(tvShowId);
-      response;
       setTVShowData(response);
     };
     fetchData();
@@ -28,7 +27,7 @@ export default function Serie() {
     return () => {
       setTVShowData(null);
     };
-  }, [id]);
+  }, [tvShowId]);
 
   if (!tvShowData) return <LoadingScreen />;
 

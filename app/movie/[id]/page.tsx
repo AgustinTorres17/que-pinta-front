@@ -21,7 +21,6 @@ export default function Movie() {
     if (!movieId) return;
     const fetchData = async () => {
       const response: MovieData = await getMovieData(movieId);
-      response;
       setMovieData(response);
     };
     fetchData();
@@ -29,7 +28,7 @@ export default function Movie() {
     return () => {
       setMovieData(null);
     };
-  }, [id]);
+  }, [movieId]);
 
   if (!movieData) return <LoadingScreen />;
 
