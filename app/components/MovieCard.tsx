@@ -13,9 +13,6 @@ interface MovieCardProps {
 }
 
 export const MovieCard = ({ title, year, imageUrl, id, isMovie }: MovieCardProps) => {
-  if(id === 1408) {
-    console.log("MovieCardProps", { title, year, imageUrl, id, isMovie });
-  }
   return (
     <div className="relative overflow-hidden aspect-[12/18]">
       {imageUrl === "http://image.tmdb.org/t/p/w500/null" ? (
@@ -40,7 +37,7 @@ export const MovieCard = ({ title, year, imageUrl, id, isMovie }: MovieCardProps
         <Leading variant="h3" className="text-fondo-100">{title}</Leading>
         <p className="text-fondo-300">{year}</p>
         <Link href={isMovie ? `/movie/${id}` : `/serie/${id}`}>
-          <Button variant="default">Ver más</Button>
+          <Button className="font-bold" variant="default">Ver más</Button>
         </Link>
       </div>
     </div>

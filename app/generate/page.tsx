@@ -1,27 +1,42 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useChatStore } from "@/store/useChatStore";
-
+import { sendPrompt } from "@/services/aiService";
+import { MovieData } from "@/types/Movie";
+import { TVShowData } from "@/types/Serie";
+import { Leading } from "@/components/Leading";
+import { Collection } from "../components/Collection";
+import { useMemo } from "react";
 const GeneratePage = () => {
+  const [movies, setMovies] = useState<(MovieData | TVShowData)[]>([]);
+
+  const memoizedMovies = useMemo(() => movies, [movies]);
   const chatMessage = useChatStore((state) => state.chatMessage);
   const router = useRouter();
 
   useEffect(() => {
     if (chatMessage.trim()) {
-      // Aquí puedes enviar el prompt al backend
-      console.log("Enviando prompt al backend:", chatMessage);
+      const generateContent = async () => {
+        const response: (MovieData | TVShowData)[] = await sendPrompt(
+          chatMessage
+        );
+        setMovies(response);
+      };
+      generateContent();
     } else {
-      // Si no hay prompt, redirigir a otra página o mostrar un mensaje de error
       router.push("/");
     }
   }, [chatMessage, router]);
 
   return (
-    <div>
-      <h1>Generar Contenido</h1>
-      <p>Prompt: {chatMessage}</p>
-      {/* Aquí puedes mostrar el resultado de la generación de contenido */}
+    <div className="h-full overflow-auto">
+      <div className="flex flex-col w-full overflow-hidden gap-5 pl-4 pt-4">
+        <div className="flex flex-col gap-2 w-full items-center">
+          <Leading variant={"h1"}>Las recomendaciones de Chatplin:</Leading>
+          <Collection list={memoizedMovies} />
+        </div>
+      </div>
     </div>
   );
 };

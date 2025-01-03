@@ -94,6 +94,7 @@ export const Carousel = ({ slides }: CarouselProps) => {
                 variant={"h2"}
                 style={{
                   textShadow: "0 0 10px rgba(0, 0, 0, 0.7)",
+                  fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
                 }}
               >
                 {"title" in slide ? slide.title : slide.name}

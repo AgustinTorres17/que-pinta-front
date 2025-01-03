@@ -32,7 +32,7 @@ export const Chat = () => {
   };
 
   return (
-    <div className="fixed bottom-0 right-6 z-[9999]">
+    <div className="fixed bottom-0 right-0 md:right-6 z-[9999]">
       <AnimatePresence>
         {chatOpen && (
           <motion.div
@@ -40,9 +40,9 @@ export const Chat = () => {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="group rounded-t-xl w-96 p-4 bg-fondo-50/90 dark:bg-fondo-950/90 flex flex-col gap-4"
+            className="group rounded-t-xl w-full md:w-96 bg-fondo-50 dark:bg-fondo-950 border-t-2 border-l-2 border-r-2 border-fondo-200 dark:border-fondo-900 flex flex-col gap-4"
           >
-            <div className="w-full flex justify-between items-center">
+            <div className="w-full flex justify-between items-center px-4 pt-4">
               <Leading variant={"h3"}>Asesórate con Chatplin</Leading>
               <Button
                 onClick={() => handleChatClick()}
@@ -55,11 +55,11 @@ export const Chat = () => {
             </div>
             <div className="h-[2px] bg-fondo-200 dark:bg-fondo-900/70 w-full mb-2"></div>
             <div className="px-4">
-              <p className="text-neutral-900 dark:text-neutral-50 text-lg font-semibold">
+              <p className="text-neutral-900 dark:text-neutral-50 text-md">
                 ¡Hola! 👋 <br />
                 <br />
                 Soy Chatplin, la IA de{" "}
-                <span className="text-fondo-900 dark:text-fondo-200 italic">
+                <span className="text-fondo-900 dark:text-fondo-200 italic font-bold">
                   QuePinta
                 </span>
                 . <br />
@@ -75,7 +75,7 @@ export const Chat = () => {
                 ver mis recomendaciones.
               </p>
             </div>
-            <div className="grid grid-cols-1fr-auto gap-2">
+            <div className="grid grid-cols-1fr-auto gap-2 pb-4 px-4">
               <Input
                 value={chatMessage}
                 onChange={(e) => setChatMessage(e.target.value)}
@@ -86,7 +86,7 @@ export const Chat = () => {
               <Button
                 onClick={handleSearchButtonClick}
                 variant={"outline"}
-                className="mt-2"
+                className="mt-2 font-bold"
               >
                 Enviar
               </Button>
