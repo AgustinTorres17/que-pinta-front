@@ -8,8 +8,10 @@ import { TVShowData } from "@/types/Serie";
 import { Leading } from "@/components/Leading";
 import { Collection } from "../components/Collection";
 import { useMemo } from "react";
+import { LoadingScreen } from "../components/LoadingScreen";
 const GeneratePage = () => {
   const [movies, setMovies] = useState<(MovieData | TVShowData)[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const memoizedMovies = useMemo(() => movies, [movies]);
   const chatMessage = useChatStore((state) => state.chatMessage);
@@ -22,12 +24,17 @@ const GeneratePage = () => {
           chatMessage
         );
         setMovies(response);
+        setLoading(false);
       };
       generateContent();
     } else {
       router.push("/");
     }
   }, [chatMessage, router]);
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="h-full overflow-auto">
