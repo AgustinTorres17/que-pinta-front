@@ -33,7 +33,7 @@ export const MovieCard = ({ title, year, imageUrl, id, isMovie }: MovieCardProps
         />
       )}
 
-      <div className="absolute inset-0 h-full text-center text-pretty bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 md:p-4 md:gap-3 opacity-0 hover:opacity-100 active:opacity-100 transition-opacity duration-500">
+      <div className="absolute p-2 inset-0 h-full text-center text-pretty bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 md:p-4 md:gap-3 opacity-0 hover:opacity-100 active:opacity-100 transition-opacity duration-500">
         <Leading variant="h3" className="text-fondo-100">{title}</Leading>
         <p className="text-fondo-300">{year}</p>
         <Link href={isMovie ? `/movie/${id}` : `/serie/${id}`}>

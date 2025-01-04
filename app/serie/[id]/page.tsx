@@ -34,7 +34,7 @@ export default function Serie() {
   return (
     <div className="relative min-h-full w-full overflow-x-hidden lg:flex overflow-y-auto lg:items-start lg:justify-center">
       <div className="flex flex-col md:grid md:grid-cols-2 items-start lg:w-[80%] justify-start gap-5 z-10 relative">
-        <div className="w-full flex flex-col items-center justify-start gap-4 pt-8 md:sticky md:top-0">
+        <div className="w-full flex flex-col items-center justify-start gap-8 pt-8 md:sticky md:top-0">
           <div className="text-center flex flex-col items-center justify-center gap-2">
             <Leading variant="h2" className="max-w-96">{tvShowData.name}</Leading>
             <p className="text-fondo-800 dark:text-fondo-300 italic">
@@ -55,7 +55,7 @@ export default function Serie() {
             <VoteCircle voteAverage={tvShowData.vote_average} />
           )}
         </div>
-        <div className="h-full w-full flex flex-col items-center justify-between gap-4 p-8 md:pt-8">
+        <div className="h-full w-full flex flex-col items-center justify-between gap-8 p-8 pt-0 md:pt-8">
           <div className="lg:flex lg:items-start lg:w-full">
             {tvShowData.overview && (
               <div className="w-full text-center lg:max-w-full text-lg flex flex-col gap-2">
