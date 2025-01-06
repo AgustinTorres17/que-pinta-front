@@ -14,7 +14,7 @@ interface MovieCardProps {
 
 export const MovieCard = ({ title, year, imageUrl, id, isMovie }: MovieCardProps) => {
   return (
-    <div className="relative overflow-hidden aspect-[12/18]">
+    <div className="relative overflow-hidden aspect-[12/18] rounded-xl">
       {imageUrl === "http://image.tmdb.org/t/p/w500/null" ? (
         <Image
           src="https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg"

@@ -27,7 +27,7 @@ export const MovieInfo: React.FC<MovieInfoProps> = ({
       {homepage ? (
         <Link target="_blank" href={homepage} className="hover:shadow-xl">
           <Image
-            src={`http://image.tmdb.org/t/p/w500${poster_path}`}
+            src={`http://image.tmdb.org/t/p/original${poster_path}`}
             alt={title}
             width={300}
             height={450}
@@ -36,7 +36,7 @@ export const MovieInfo: React.FC<MovieInfoProps> = ({
       ) : (
         <Image
           className="hover:shadow-xl hover:shadow-fondo-950 duration-200"
-          src={`http://image.tmdb.org/t/p/w500${poster_path}`}
+          src={`http://image.tmdb.org/t/p/original${poster_path}`}
           alt={title}
           width={300}
           height={450}
