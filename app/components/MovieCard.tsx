@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Leading } from "@/components/Leading";
 import Image from "next/legacy/image";
+import { motion } from "framer-motion";
 
 interface MovieCardProps {
   title: string;
@@ -12,9 +13,21 @@ interface MovieCardProps {
   isMovie: boolean;
 }
 
-export const MovieCard = ({ title, year, imageUrl, id, isMovie }: MovieCardProps) => {
+export const MovieCard = ({
+  title,
+  year,
+  imageUrl,
+  id,
+  isMovie,
+}: MovieCardProps) => {
+  
   return (
-    <div className="relative overflow-hidden aspect-[12/18] rounded-xl">
+    <motion.div
+      className="relative overflow-hidden aspect-[12/18] rounded-xl"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       {imageUrl === "http://image.tmdb.org/t/p/w500/null" ? (
         <Image
           src="https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg"
@@ -34,12 +47,16 @@ export const MovieCard = ({ title, year, imageUrl, id, isMovie }: MovieCardProps
       )}
 
       <div className="absolute p-2 inset-0 h-full text-center text-pretty bg-black bg-opacity-60 flex flex-col items-center justify-center gap-3 md:p-4 md:gap-3 opacity-0 hover:opacity-100 active:opacity-100 transition-opacity duration-500">
-        <Leading variant="h3" className="text-fondo-100">{title}</Leading>
+        <Leading variant="h3" className="text-fondo-100">
+          {title}
+        </Leading>
         <p className="text-fondo-300">{year}</p>
         <Link href={isMovie ? `/movie/${id}` : `/serie/${id}`}>
-          <Button className="font-bold" variant="default">Ver más</Button>
+          <Button className="font-bold" variant="default">
+            Ver más
+          </Button>
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };

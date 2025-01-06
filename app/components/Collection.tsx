@@ -2,7 +2,6 @@ import React from "react";
 import { MovieCard } from "./MovieCard";
 import { MovieData } from "@/types/Movie";
 import { TVShowData } from "@/types/Serie";
-import { motion } from "framer-motion";
 import { SkeletonCard } from "./SkeletonCard";
 
 interface CollectionProps {
@@ -19,11 +18,8 @@ export const Collection = ({ list }: CollectionProps) => {
             <SkeletonCard key={index} />
           ))
         : list.map((item) => (
-            <motion.div
+            <div
               key={item.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <MovieCard
                 title={"title" in item ? item.title : item.name}
@@ -38,7 +34,7 @@ export const Collection = ({ list }: CollectionProps) => {
                 imageUrl={"http://image.tmdb.org/t/p/w780/" + item?.poster_path}
                 isMovie={"title" in item}
               />
-            </motion.div>
+            </div>
           ))}
     </div>
   );
