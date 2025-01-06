@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { getTVShowData } from "@/services/serieService";
 import { TVShowData } from "@/types/Serie";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Leading } from "@/components/Leading";
 import { ProducedBy } from "@/components/details/ProducedBy";
 import { VoteCircle } from "@/components/details/VoteCircle";
 import { Genres } from "@/components/details/Genres";
 import { Seasons } from "@/components/details/Seasons";
 import { LoadingScreen } from "@/app/components/LoadingScreen";
+import { MovieInfo } from "@/components/details/MovieInfo";
 
 export default function Serie() {
   const { id } = useParams();
@@ -36,26 +37,19 @@ export default function Serie() {
       <div className="flex flex-col md:grid md:grid-cols-2 items-start lg:w-[80%] justify-start gap-5 z-10 relative">
         <div className="w-full flex flex-col items-center justify-start gap-8 pt-8 md:sticky md:top-0">
           <div className="text-center flex flex-col items-center justify-center gap-2">
-            <Leading variant="h2" className="max-w-96">{tvShowData.name}</Leading>
-            <p className="text-fondo-800 dark:text-fondo-300 italic">
-              {tvShowData.first_air_date}
-            </p>
-            {tvShowData.poster_path && (
-              <Image
-                src={`http://image.tmdb.org/t/p/w500${tvShowData.poster_path}`}
-                alt={tvShowData.name}
-                width={300}
-                height={450}
-                className="rounded-lg"
-              />
-            )}
+            <MovieInfo
+              title={tvShowData.name}
+              poster_path={tvShowData.poster_path}
+              homepage={tvShowData.homepage}
+              release_date={tvShowData.first_air_date}
+            />
           </div>
           <Genres genres={tvShowData.genres} />
           {tvShowData.vote_average && (
             <VoteCircle voteAverage={tvShowData.vote_average} />
           )}
         </div>
-        <div className="h-full w-full flex flex-col items-center justify-between gap-8 p-8 pt-0 md:pt-8">
+        <div className="h-full w-full flex flex-col items-center justify-start gap-8 p-8 pt-0 md:pt-8">
           <div className="lg:flex lg:items-start lg:w-full">
             {tvShowData.overview && (
               <div className="w-full text-center lg:max-w-full text-lg flex flex-col gap-2">
@@ -65,7 +59,9 @@ export default function Serie() {
             )}
           </div>
           <Seasons seasons={tvShowData.seasons} />
-          <ProducedBy companies={tvShowData.production_companies} />
+          {tvShowData.production_companies && (
+            <ProducedBy companies={tvShowData.production_companies} />
+          )}
         </div>
       </div>
       {tvShowData.backdrop_path && (

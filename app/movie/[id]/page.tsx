@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { getMovieData } from "@/services/movieService";
 import { Leading } from "@/components/Leading";
 import { MovieData } from "@/types/Movie";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { ProducedBy } from "@/components/details/ProducedBy";
 import { MovieInfo } from "@/components/details/MovieInfo";
 import { BudgetRevenue } from "@/components/details/BudgetRevenue";
@@ -47,7 +47,7 @@ export default function Movie() {
             <VoteCircle voteAverage={movieData.vote_average} />
           )}
         </div>
-        <div className="h-full w-full flex flex-col items-center justify-between gap-4 p-8 pt-0 md:pt-8">
+        <div className="h-full w-full flex flex-col items-center justify-start gap-4 p-8 pt-0 md:pt-8">
           {movieData.overview && (
             <div className="w-full text-center lg:max-w-full text-lg flex flex-col gap-2">
               <Leading variant={"h3"}>Sinópsis</Leading>

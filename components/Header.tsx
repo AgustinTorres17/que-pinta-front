@@ -5,7 +5,6 @@ import { Clapperboard } from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
 import { Input } from "./ui/input";
 import Link from "next/link";
-import { searchMovieByTitle } from "@/services/searchService";
 import { useRouter } from "next/navigation";
 import { useSearchStore } from "@/store/useSearchStore";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Leading } from "@/components/Leading";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface MovieCardProps {
   title: string;

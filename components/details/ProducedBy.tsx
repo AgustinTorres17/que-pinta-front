@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Leading } from "@/components/Leading";
+import { motion } from "framer-motion";
 interface ProductionCompany {
   id: number;
   logo_path: string | null;
@@ -11,7 +12,7 @@ interface ProductionCompaniesProps {
   companies: ProductionCompany[];
 }
 export const ProducedBy = ({ companies }: ProductionCompaniesProps) => {
-  if (!companies || companies.length === 0) {
+  if (!companies || companies.length === 0 || companies.some((company) => !company.logo_path)) {
     return null;
   }
   return (
@@ -27,15 +28,22 @@ export const ProducedBy = ({ companies }: ProductionCompaniesProps) => {
           return (
             <div
               key={company.id}
-              className="h-32 w-32 flex items-center p-4 rounded-lg bg-fondo-200"
+              className="relative h-24 w-32 flex items-center rounded-lg bg-fondo-200"
             >
-              <Image
-                src={`http://image.tmdb.org/t/p/original${company.logo_path}`}
-                alt={company.name}
-                width={100}
-                height={100}
-                objectFit="cover"
-              />
+              <motion.div
+                className="p-4"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <Image
+                  src={`http://image.tmdb.org/t/p/original${company.logo_path}`}
+                  alt={company.name}
+                  objectFit="contain"
+                  width={128}
+                  height={96}
+                />
+              </motion.div>
             </div>
           );
         })}

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 import { MovieData } from "@/types/Movie";
 import { TVShowData } from "@/types/Serie";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import "./Carousel.css";
 import { Leading } from "@/components/Leading";
 

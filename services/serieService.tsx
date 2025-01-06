@@ -3,7 +3,7 @@ import { TVShowData } from "@/types/Serie";
 import { applyAllFiltersAndSorts } from "@/utils/arrayUtils";
 
 export async function getTVShowData(idTVShow: string): Promise<TVShowData> {
-  const response = RestHelper.get<TVShowData>(`/serie/${idTVShow}`);
+  const response = await RestHelper.get<TVShowData>(`/serie/${idTVShow}`);
   (response);
   return response;
 }
