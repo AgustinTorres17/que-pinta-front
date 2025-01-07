@@ -82,7 +82,7 @@ export const Carousel = ({ slides }: CarouselProps) => {
         {combinedSlides.map((slide, index) => (
           <div key={index} className="relative h-full w-full">
             <Image
-              src={`http://image.tmdb.org/t/p/original${slide.backdrop_path}`}
+              src={`http://image.tmdb.org/t/p/w1280${slide.backdrop_path}`}
               alt={"title" in slide ? slide.title : slide.name || "No Title"}
               layout="fill"
               objectFit="cover"

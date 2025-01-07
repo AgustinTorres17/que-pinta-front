@@ -68,7 +68,7 @@ export default function Movie() {
       </div>
       <div className="fixed inset-0 z-0 opacity-20 pointer-events-none select-none">
         <Image
-          src={`http://image.tmdb.org/t/p/original${movieData.backdrop_path}`}
+          src={`http://image.tmdb.org/t/p/w1280${movieData.backdrop_path}`}
           alt={movieData.title}
           layout="fill"
           objectFit="cover"
