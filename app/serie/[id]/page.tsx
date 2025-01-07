@@ -67,7 +67,7 @@ export default function Serie() {
       {tvShowData.backdrop_path && (
         <div className="fixed inset-0 z-0 opacity-20 pointer-events-none select-none">
           <Image
-            src={`http://image.tmdb.org/t/p/original${tvShowData.backdrop_path}`}
+            src={`http://image.tmdb.org/t/p/w1280${tvShowData.backdrop_path}`}
             alt={tvShowData.name}
             layout="fill"
             objectFit="cover"
